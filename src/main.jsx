@@ -8,11 +8,12 @@ import '@fontsource/poppins/800.css'
 import './styles.css'
 
 import { CalendarApp } from './CalendarApp'
-import { Background } from './components'
+import { LayoutApp } from './layout/LayoutApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Background />
-    <CalendarApp />
+    <LayoutApp>
+      <CalendarApp />
+    </LayoutApp>
   </React.StrictMode>
 )
