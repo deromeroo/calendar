@@ -2,13 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --main-color: #3b82f6;
+    --title-color: rgb(23 37 84);
+    --white: #FCF7FF;
+    --bgBlue: #93c4fd6a;
+
+}
+
 body {
     font-family: 'Poppins', system-ui, sans-serif;
 }
 
 .glass {
 
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(2px);
     border-radius: 10px;
@@ -20,14 +28,41 @@ body {
 }
 
 .rbc-day-slot .rbc-events-container {
-    margin-right: 0;
+    margin-right: 0 !important;
 }
 
 .rbc-today {
-    background-color: #726bea2e !important;
+    background-color: var(--bgBlue) !important;
+    color: var(--title-color) !important;
 }
 
+.rbc-off-range-bg {
+    background-color: #1b438d4d !important;
+}
+
+.rbc-toolbar-label {
+    color: var(--main-color);
+    font-size: 18px;
+}
 
 div .rbc-header {
-    color: '#6e69ea';
+    color: var(--white);
+    font-weight: 400;
+    background-color: var(--main-color);
+}
+
+.rbc-toolbar button {
+    color: var(--title-color) !important;
+}
+
+.rbc-toolbar button.rbc-active {
+    background-color: var(--bgBlue) !important;
+}
+
+.rbc-toolbar button:hover {
+    background-color: var(--bgBlue) !important;
+}
+
+.rbc-button-link {
+    color: var(--title-color) !important;
 }

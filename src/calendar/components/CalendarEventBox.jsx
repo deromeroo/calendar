@@ -6,7 +6,7 @@ export const CalendarEventBox = ({ event }) => {
   return (
     <>
         <p className=" text-xs sm:text-sm text-pretty font-semibold">{title}</p>
-        <span className="text-xs opacity-70">- {user.name}</span>
+        <span className="text-xs opacity-80">- {user.name}</span>
     </>
   )
 }

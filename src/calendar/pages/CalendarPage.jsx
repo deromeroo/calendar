@@ -8,15 +8,19 @@ import { localizer } from '../helpers'
 import { useCalendar } from '../hooks/useCalendar'
 
 export const CalendarPage = () => {
-  const { events, onDoubleClick, onSelect, onViewChanged } = useCalendar()
+  const {
+    lastView,
+    events,
+    onDoubleClick,
+    onSelect,
+    onViewChanged
+  } = useCalendar()
 
   const eventStyleGetter = (event, start, end, isSelected) => {
     const style = {
-      backgroundColor: '#4f46e5',
+      backgroundColor: '#3b82f6',
       borderRadius: '2px',
-      opacity: 0.8,
-      color: 'white',
-      borderColor: '#818cf8'
+      color: '#FCF7FF'
     }
 
     return {
@@ -31,7 +35,7 @@ export const CalendarPage = () => {
       <Calendar
         localizer={ localizer }
         events={ events }
-        // defaultView = {}
+        defaultView = { lastView }
         startAccessor="start"
         endAccessor="end"
         style={{ height: '90%' }}
