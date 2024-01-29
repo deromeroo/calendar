@@ -6,7 +6,7 @@ export const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
 
             <Link to="/" className="flex items-center space-x-3 ">
-                <img src="/calendar.svg" className="h-8 bg-blue-500 rounded-md p-1 hover:bg-blue-400 fill-current transition" alt="Calendar Logo" />
+                <img src="/calendar.svg" className="h-8 bg-blue-500 rounded-md p-1 hover:bg-blue-400 fill-current hover:scale-110 transition" alt="Calendar Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-400">Calendar</span>
             </Link>
 
