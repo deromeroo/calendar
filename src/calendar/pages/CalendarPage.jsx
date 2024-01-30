@@ -3,7 +3,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 import 'animate.css'
 
-import { CalendarEventBox, Navbar } from '../'
+import { CalendarEventBox, CalendarModal, Navbar } from '../'
 import { localizer } from '../helpers'
 import { useCalendar } from '../hooks/useCalendar'
 
@@ -18,7 +18,7 @@ export const CalendarPage = () => {
 
   const eventStyleGetter = (event, start, end, isSelected) => {
     const style = {
-      backgroundColor: '#3b82f6',
+      backgroundColor: '#4f46e5',
       borderRadius: '2px',
       color: '#FCF7FF'
     }
@@ -47,6 +47,8 @@ export const CalendarPage = () => {
         onSelectEvent={ onSelect }
         onView={ onViewChanged }
       />
+
+      <CalendarModal />
 
     </div>
   )

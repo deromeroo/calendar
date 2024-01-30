@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 :root {
-    --main-color: #3b82f6;
-    --title-color: rgb(23 37 84);
+    --main-color: #4f46e5;
+    --title-color: #33347c;
     --white: #FCF7FF;
-    --bgBlue: #93c4fd6a;
-
+    --bgBlue: #6365f152;
 }
 
 body {
@@ -37,7 +36,7 @@ body {
 }
 
 .rbc-off-range-bg {
-    background-color: #1b438d4d !important;
+    background-color: #2a2b6337 !important;
 }
 
 .rbc-toolbar-label {
@@ -65,4 +64,23 @@ div .rbc-header {
 
 .rbc-button-link {
     color: var(--title-color) !important;
+}
+
+
+/*MODAL STYLES*/
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 999;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
 }
