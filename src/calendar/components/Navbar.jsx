@@ -17,7 +17,7 @@ export const Navbar = () => {
                         className="flex items-center px-2 py-1 text-md transition rounded-md"
                     >
                         <span className='hidden md:block text-indigo-400 md:mr-1 text-lg'>Logout</span>
-                        <img src="/icons/logout.svg" className="h-7 hover:scale-110 transition" alt="Logout Logo" />
+                        <box-icon name='log-in-circle' color={'#4f46e5'} animation='tada-hover'></box-icon>
                     </Link>
                 </li>
             </ul>

@@ -6,7 +6,7 @@
     --main-color: #4f46e5;
     --title-color: #33347c;
     --white: #FCF7FF;
-    --bgBlue: #6365f152;
+    --bgIndigo: #6365f152;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
 }
 
 .rbc-today {
-    background-color: var(--bgBlue) !important;
+    background-color: var(--bgIndigo) !important;
     color: var(--title-color) !important;
 }
 
@@ -55,11 +55,11 @@ div .rbc-header {
 }
 
 .rbc-toolbar button.rbc-active {
-    background-color: var(--bgBlue) !important;
+    background-color: var(--bgIndigo) !important;
 }
 
 .rbc-toolbar button:hover {
-    background-color: var(--bgBlue) !important;
+    background-color: var(--bgIndigo) !important;
 }
 
 .rbc-button-link {
