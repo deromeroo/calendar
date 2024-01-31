@@ -3,30 +3,22 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 import 'animate.css'
 
-import { CalendarEventBox, CalendarModal, Navbar } from '../'
+import { CalendarEventBox, CalendarModal, FabAddNew, Navbar } from '../'
 import { localizer } from '../helpers'
 import { useCalendar } from '../hooks/useCalendar'
+import { useCalendarStore } from '../../hooks'
 
 export const CalendarPage = () => {
+  const { events } = useCalendarStore()
+
   const {
     lastView,
-    events,
+
+    eventStyleGetter,
     onDoubleClick,
     onSelect,
     onViewChanged
   } = useCalendar()
-
-  const eventStyleGetter = (event, start, end, isSelected) => {
-    const style = {
-      backgroundColor: '#4f46e5',
-      borderRadius: '2px',
-      color: '#FCF7FF'
-    }
-
-    return {
-      style
-    }
-  }
 
   return (
     <div className="glass p-4 animate__animated animate__fadeIn">
@@ -49,6 +41,7 @@ export const CalendarPage = () => {
       />
 
       <CalendarModal />
+      <FabAddNew />
 
     </div>
   )

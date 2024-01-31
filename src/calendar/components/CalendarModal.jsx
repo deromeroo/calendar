@@ -5,13 +5,17 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 import 'boxicons'
 import 'animate.css'
 import { useModal } from '../hooks/useModal'
+import { useUiStore } from '../../hooks/useUiStore'
 
 Modal.setAppElement('#root')
 
 export const CalendarModal = () => {
   const {
+    isDateModalOpen
+  } = useUiStore()
+
+  const {
     customStyles,
-    isModalOpen,
     titleClass,
     noteClass,
     formValues,
@@ -24,7 +28,7 @@ export const CalendarModal = () => {
 
   return (
     <Modal
-        isOpen={ isModalOpen }
+        isOpen={ isDateModalOpen }
         onRequestClose={ onCloseModal }
         style={ customStyles }
         className={ 'animate__animated animate__fadeIn absolute w-[80%] sm:w-[450px] bg-white rounded inline outline-none py-4 px-6' }

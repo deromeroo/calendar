@@ -1,27 +1,17 @@
-import { addHours } from 'date-fns'
 import { useState } from 'react'
+import { useCalendarStore, useUiStore } from '../../hooks'
 
 export const useCalendar = () => {
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week')
-
-  const events = [{
-    title: 'Rocket Birthday',
-    notes: 'We have to buy the cake',
-    start: new Date(),
-    end: addHours(new Date(), 2),
-    bgColor: '#FFF',
-    user: {
-      _id: '001',
-      name: 'Deromeroo'
-    }
-  }]
+  const { openDateModal } = useUiStore()
+  const { setActiveEvent } = useCalendarStore()
 
   const onDoubleClick = (e) => {
-    console.log({ doubleClick: e })
+    openDateModal()
   }
 
   const onSelect = (e) => {
-    console.log({ select: e })
+    setActiveEvent(e)
   }
 
   const onViewChanged = (e) => {
@@ -29,11 +19,22 @@ export const useCalendar = () => {
     setLastView(e)
   }
 
-  return {
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const style = {
+      backgroundColor: '#4f46e5',
+      borderRadius: '2px',
+      color: '#FCF7FF'
+    }
 
+    return {
+      style
+    }
+  }
+
+  return {
     lastView,
 
-    events,
+    eventStyleGetter,
     onDoubleClick,
     onSelect,
     onViewChanged

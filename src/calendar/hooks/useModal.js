@@ -1,8 +1,14 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+
 import { addHours, differenceInSeconds } from 'date-fns'
 import Swal from 'sweetalert2'
 
+import { useCalendarStore, useUiStore } from '../../hooks'
+
 export const useModal = () => {
+  const { closeDateModal } = useUiStore()
+  const { activeEvent } = useCalendarStore()
+
   const customStyles = {
     content: {
       top: '50%',
@@ -14,7 +20,6 @@ export const useModal = () => {
     }
   }
 
-  const [isModalOpen, setIsModalOpen] = useState(true)
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const [formValues, setFormValues] = useState({
@@ -39,6 +44,12 @@ export const useModal = () => {
       ? ''
       : 'border-red-300 border-2'
   }, [formValues.notes, formSubmitted])
+
+  useEffect(() => {
+    if (activeEvent !== null) {
+      setFormValues({ ...activeEvent })
+    }
+  }, [activeEvent])
 
   const onInputChange = ({ target }) => {
     setFormValues({
@@ -71,11 +82,10 @@ export const useModal = () => {
   }
 
   const onCloseModal = () => {
-    setIsModalOpen(false)
+    closeDateModal()
   }
 
   return {
-    isModalOpen,
     titleClass,
     noteClass,
     customStyles,

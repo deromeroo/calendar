@@ -15,9 +15,9 @@ body {
 
 .glass {
 
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 10px;
     border: 1px solid rgba(157, 157, 157, 0.2);
 }
@@ -36,7 +36,11 @@ body {
 }
 
 .rbc-off-range-bg {
-    background-color: #2a2b6337 !important;
+    background-color: #2a2b6375 !important;
+}
+
+.rbc-toolbar {
+    gap: 10px;
 }
 
 .rbc-toolbar-label {
