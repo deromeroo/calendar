@@ -21,7 +21,7 @@ export const useCalendar = () => {
 
   const eventStyleGetter = (event, start, end, isSelected) => {
     const style = {
-      backgroundColor: '#4f46e5',
+      backgroundColor: 'rgb(99 102 241)',
       borderRadius: '2px',
       color: '#FCF7FF'
     }

@@ -7,7 +7,7 @@ import { useCalendarStore, useUiStore } from '../../hooks'
 
 export const useModal = () => {
   const { closeDateModal } = useUiStore()
-  const { activeEvent } = useCalendarStore()
+  const { activeEvent, startSavingEvent } = useCalendarStore()
 
   const customStyles = {
     content: {
@@ -65,7 +65,7 @@ export const useModal = () => {
     })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     setFormSubmitted(true)
 
@@ -78,7 +78,9 @@ export const useModal = () => {
 
     if (formValues.title.length <= 0) return
 
-    console.log(formValues)
+    await startSavingEvent(formValues)
+    closeDateModal()
+    setFormSubmitted(false)
   }
 
   const onCloseModal = () => {

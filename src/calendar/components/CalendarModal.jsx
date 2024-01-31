@@ -10,9 +10,7 @@ import { useUiStore } from '../../hooks/useUiStore'
 Modal.setAppElement('#root')
 
 export const CalendarModal = () => {
-  const {
-    isDateModalOpen
-  } = useUiStore()
+  const { isDateModalOpen } = useUiStore()
 
   const {
     customStyles,

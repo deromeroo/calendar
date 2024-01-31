@@ -6,7 +6,7 @@
     --main-color: #4f46e5;
     --title-color: #33347c;
     --white: #FCF7FF;
-    --bgIndigo: #6365f152;
+    --bgIndigo: #6365f170;
 }
 
 body {
@@ -36,11 +36,27 @@ body {
 }
 
 .rbc-off-range-bg {
-    background-color: #2a2b6375 !important;
+    background-color: #2a2b6372 !important;
+    opacity: 0.5 !important;
+}
+
+.rbc-date-cell.rbc-off-range .rbc-button-link {
+    color: var(--white);
+}
+
+.rbc-date-cell .rbc-button-link {
+    color: var(--title-color);
 }
 
 .rbc-toolbar {
     gap: 10px;
+    flex-direction: row;
+}
+
+@media (max-width: 720px) {
+    .rbc-toolbar {
+        flex-direction: column;
+    }
 }
 
 .rbc-toolbar-label {
@@ -60,6 +76,7 @@ div .rbc-header {
 
 .rbc-toolbar button.rbc-active {
     background-color: var(--bgIndigo) !important;
+    color: var(--white) !important;
 }
 
 .rbc-toolbar button:hover {
