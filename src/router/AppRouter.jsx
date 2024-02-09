@@ -3,7 +3,7 @@ import { CalendarPage } from '../calendar'
 import { AuthRoutes } from '../auth'
 
 export const AppRouter = () => {
-  const authStatus = 'authenticated'
+  const authStatus = 'not-authenticated'
 
   return (
     <Routes>
