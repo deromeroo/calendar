@@ -6,7 +6,7 @@ import 'animate.css'
 import { CalendarEventBox, CalendarModal, FabAddNew, FabDelete, Navbar } from '../'
 import { localizer } from '../helpers'
 import { useCalendar } from '../hooks/useCalendar'
-import { useCalendarStore } from '../../hooks'
+import { useCalendarStore } from '../hooks/useCalendarStore'
 
 export const CalendarPage = () => {
   const { events } = useCalendarStore()

@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { LoginLayout } from '../layout/LoginLayout'
 import { useForm } from '../../hooks'
+import Swal from 'sweetalert2'
+import { useAuthStore } from '../hooks'
+import { useEffect } from 'react'
 
 const registeFormFields = {
   name: '',
@@ -10,6 +13,8 @@ const registeFormFields = {
 }
 
 export const RegisterPage = () => {
+  const { startRegister, errorMessage } = useAuthStore()
+
   const {
     name,
     email,
@@ -21,13 +26,28 @@ export const RegisterPage = () => {
   const registerSubmit = (e) => {
     e.preventDefault()
 
-    console.log({
+    if (password !== password2) {
+      Swal.fire('Register error', 'Passwords do not match', 'error')
+      return
+    }
+
+    if (name.length < 3) {
+      Swal.fire('Register error', 'Name must contain more than 3 characters', 'error')
+      return
+    }
+
+    startRegister({
+      name,
       email,
-      password,
-      password2,
-      name
+      password
     })
   }
+
+  useEffect(() => {
+    if (errorMessage !== undefined) {
+      Swal.fire('Authentication error', errorMessage, 'error')
+    }
+  }, [errorMessage])
 
   return (
     <LoginLayout>

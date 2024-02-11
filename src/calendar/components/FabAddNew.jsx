@@ -1,7 +1,8 @@
 import { addHours } from 'date-fns'
 import 'boxicons'
 
-import { useCalendarStore, useUiStore } from '../../hooks'
+import { useUiStore } from '../../hooks'
+import { useCalendarStore } from '../hooks/useCalendarStore'
 
 export const FabAddNew = () => {
   const { openDateModal } = useUiStore()

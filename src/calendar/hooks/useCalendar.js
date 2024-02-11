@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { useCalendarStore, useUiStore } from '../../hooks'
+import { useCalendarStore } from './useCalendarStore'
+import { useUiStore } from '../../hooks/useUiStore'
 
 export const useCalendar = () => {
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week')

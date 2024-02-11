@@ -1,5 +1,5 @@
 import 'boxicons'
-import { useCalendarStore } from '../../hooks'
+import { useCalendarStore } from '../hooks/useCalendarStore'
 
 export const FabDelete = () => {
   const { startDeletingEvent, hasEventSelected } = useCalendarStore()

@@ -1,6 +1,10 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 import { LoginLayout } from '../layout/LoginLayout'
 import { useForm } from '../../hooks'
+import { useAuthStore } from '../hooks'
 
 const loginFormFields = {
   email: '',
@@ -8,6 +12,8 @@ const loginFormFields = {
 }
 
 export const LoginPage = () => {
+  const { startLogin, errorMessage } = useAuthStore()
+
   const {
     email,
     password,
@@ -17,11 +23,17 @@ export const LoginPage = () => {
   const loginSubmit = (e) => {
     e.preventDefault()
 
-    console.log({
+    startLogin({
       email,
       password
     })
   }
+
+  useEffect(() => {
+    if (errorMessage !== undefined) {
+      Swal.fire('Authentication error', errorMessage, 'error')
+    }
+  }, [errorMessage])
 
   return (
     <LoginLayout>

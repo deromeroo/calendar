@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { addHours, differenceInSeconds } from 'date-fns'
 import Swal from 'sweetalert2'
 
-import { useCalendarStore, useUiStore } from '../../hooks'
+import { useUiStore } from '../../hooks'
+import { useCalendarStore } from './useCalendarStore'
 
 export const useModal = () => {
   const { closeDateModal } = useUiStore()
