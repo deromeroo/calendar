@@ -3,6 +3,7 @@ import { CalendarPage } from '../calendar'
 import { AuthRoutes } from '../auth'
 import { useAuthStore } from '../auth/hooks'
 import { useEffect } from 'react'
+import { Loading } from '../components/Loading'
 
 export const AppRouter = () => {
   const { status, checkAuthToken } = useAuthStore()
@@ -13,7 +14,7 @@ export const AppRouter = () => {
 
   if (status === 'checking') {
     return (
-      <h3>Loading...</h3>
+      <Loading />
     )
   }
 
