@@ -7,9 +7,10 @@ import { CalendarEventBox, CalendarModal, FabAddNew, FabDelete, Navbar } from '.
 import { localizer } from '../helpers'
 import { useCalendar } from '../hooks/useCalendar'
 import { useCalendarStore } from '../hooks/useCalendarStore'
+import { useEffect } from 'react'
 
 export const CalendarPage = () => {
-  const { events } = useCalendarStore()
+  const { events, startLoadingEvents } = useCalendarStore()
 
   const {
     lastView,
@@ -19,6 +20,10 @@ export const CalendarPage = () => {
     onSelect,
     onViewChanged
   } = useCalendar()
+
+  useEffect(() => {
+    startLoadingEvents()
+  }, [])
 
   return (
     <div className="glass p-3 animate__animated animate__fadeIn">

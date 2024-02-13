@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useCalendarStore } from './useCalendarStore'
 import { useUiStore } from '../../hooks/useUiStore'
+import { useAuthStore } from '../../auth/hooks/useAuthStore'
 
 export const useCalendar = () => {
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week')
   const { openDateModal } = useUiStore()
   const { setActiveEvent } = useCalendarStore()
+  const { user } = useAuthStore()
 
   const onDoubleClick = (e) => {
     openDateModal()
@@ -21,8 +23,10 @@ export const useCalendar = () => {
   }
 
   const eventStyleGetter = (event, start, end, isSelected) => {
+    const isMyEvent = (user.uid === event.user._id) || (user.uid === event.user.uid)
+
     const style = {
-      backgroundColor: 'rgb(99 102 241)',
+      backgroundColor: isMyEvent ? 'rgb(99 102 241)' : '#af5e9e',
       borderRadius: '2px',
       color: '#FCF7FF'
     }
